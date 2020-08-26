@@ -6,30 +6,34 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // ADD CODE HERE!
   document.addEventListener("keydown", function(e){
-    let li = document.createElement('li');
 
     switch(e.key) {
       case "ArrowDown":
-        //do something
-        li.innerText = "down"
+        renderMove("down");
         break;
       case "ArrowUp":
-        //do something
-        li.innerText = "up"
+        renderMove("up");
         break;
       case "ArrowLeft":
-        //do something
-        li.innerText = "left"
+        renderMove("left");
         break;
       case "ArrowRight":
-        //do something
-        li.innerText = "right"
+        renderMove("right");
+        break;
+      case "Backspace":
+        ul.lastChild.remove();
         break;
     }
 
     ul.append(li)
 
   });
+
+  function renderMove(move){
+    let li = document.createElement('li');
+    li.innerText = move;
+    ul.append(li);
+  }
 
   const button = document.querySelector('#move-button');
 
