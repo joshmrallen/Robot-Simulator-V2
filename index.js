@@ -34,9 +34,19 @@ document.addEventListener("DOMContentLoaded", function(){
   const button = document.querySelector('#move-button');
 
   button.addEventListener("click", function(){
-    let moveInstruction = ul.firstChild;
-    move(moveInstruction.innerText);
-    moveInstruction.remove();
+    let instructions = ul.children;
+  
+    setInterval(function(){
+
+      for(let i=0; i<instructions.length; i++) {
+        move(instructions[i].innerText);
+        instructions[i].remove();
+      }
+
+
+    }, 500);
+    // move(moveInstruction.innerText);
+    // moveInstruction.remove();
   });
 
 
